@@ -237,29 +237,29 @@ export default function HomePage() {
 
         {/* Hand graphics - Creation of Adam style */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
-          {/* Left finger dot - animates with left hand */}
+          {/* Left finger dot - animates with left hand - hidden on mobile */}
           <div
             ref={leftDotRef}
-            className="absolute w-2 h-2 rounded-full animate-float-slow"
+            className="absolute w-2 h-2 rounded-full animate-float-slow hidden md:block"
             style={{
               left: 'calc(32% - 100px)',
               top: 'calc(40% + 145px)',
               backgroundColor: '#00C805'
             }}
           />
-          {/* Right finger dot - animates with right hand */}
+          {/* Right finger dot - animates with right hand - hidden on mobile */}
           <div
             ref={rightDotRef}
-            className="absolute w-2 h-2 rounded-full animate-float-slow-reverse"
+            className="absolute w-2 h-2 rounded-full animate-float-slow-reverse hidden md:block"
             style={{
               right: 'calc(30% - 35px)',
               top: 'calc(47% - 310px)',
               backgroundColor: '#00C805'
             }}
           />
-          {/* Candlestick chart between fingers */}
+          {/* Candlestick chart between fingers - hidden on mobile */}
           <svg
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full hidden md:block"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >
@@ -317,8 +317,8 @@ export default function HomePage() {
             })}
           </svg>
 
-          {/* Right hand (flipped) - now on left side, lower position */}
-          <div className="absolute -left-[50px] top-[22%] h-[70%] w-auto animate-float-slow">
+          {/* Right hand (flipped) - now on left side, lower position - hidden on mobile */}
+          <div className="absolute -left-[50px] top-[22%] h-[70%] w-auto animate-float-slow hidden md:block">
             <div className="h-full" style={{ transform: 'scaleX(-1) rotate(15deg)' }}>
               <img
                 src="/graphics/RightHandHero.png?v=3"
@@ -327,8 +327,8 @@ export default function HomePage() {
               />
             </div>
           </div>
-          {/* Left hand (flipped) - now on right side, higher position */}
-          <div className="absolute -top-[10%] h-[70%] w-auto animate-float-slow-reverse" style={{ right: 'calc(-5% - 50px)' }}>
+          {/* Left hand (flipped) - now on right side, higher position - hidden on mobile */}
+          <div className="absolute -top-[10%] h-[70%] w-auto animate-float-slow-reverse hidden md:block" style={{ right: 'calc(-5% - 50px)' }}>
             <div className="h-full" style={{ transform: 'scaleX(-1) rotate(-10deg)' }}>
               <img
                 src="/graphics/LeftHandHero.png?v=3"
@@ -362,11 +362,11 @@ export default function HomePage() {
 
       {/* Features + Featured Presales Wrapper for statue clipping */}
       <div className="relative overflow-hidden">
-        {/* Phone statue image - spans both sections */}
+        {/* Phone statue image - spans both sections - hidden on mobile */}
         <img
           src="/graphics/phonestatuegraphic.png"
           alt=""
-          className="absolute pointer-events-none z-[5]"
+          className="absolute pointer-events-none z-[5] hidden lg:block"
           style={{
             left: '-150px',
             top: '150px',
@@ -544,11 +544,11 @@ export default function HomePage() {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-                {/* Structures graphic - bottom right */}
+                {/* Structures graphic - bottom right - hidden on mobile */}
         <img
           src="/graphics/structuresgraphics.png"
           alt=""
-          className="absolute bottom-0 pointer-events-none opacity-40"
+          className="absolute bottom-0 pointer-events-none opacity-40 hidden md:block"
           style={{
             height: '1000px',
             width: 'auto',
