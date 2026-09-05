@@ -240,7 +240,7 @@ export default function HomePage() {
           {/* Left finger dot - animates with left hand */}
           <div
             ref={leftDotRef}
-            className="absolute w-2 h-2 rounded-full animate-float-slow opacity-30 md:opacity-100"
+            className="absolute w-2 h-2 rounded-full animate-float-slow hidden lg:block"
             style={{
               left: 'calc(32% - 100px)',
               top: 'calc(40% + 145px)',
@@ -250,7 +250,7 @@ export default function HomePage() {
           {/* Right finger dot - animates with right hand */}
           <div
             ref={rightDotRef}
-            className="absolute w-2 h-2 rounded-full animate-float-slow-reverse opacity-30 md:opacity-100"
+            className="absolute w-2 h-2 rounded-full animate-float-slow-reverse hidden lg:block"
             style={{
               right: 'calc(30% - 35px)',
               top: 'calc(47% - 310px)',
@@ -259,7 +259,7 @@ export default function HomePage() {
           />
           {/* Candlestick chart between fingers */}
           <svg
-            className="absolute inset-0 w-full h-full opacity-30 md:opacity-100"
+            className="absolute inset-0 w-full h-full hidden lg:block"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >
@@ -318,7 +318,7 @@ export default function HomePage() {
           </svg>
 
           {/* Right hand (flipped) - now on left side, lower position */}
-          <div className="absolute -left-[100px] md:-left-[50px] top-[30%] md:top-[22%] h-[50%] md:h-[70%] w-auto animate-float-slow opacity-30 md:opacity-100">
+          <div className="absolute -left-[50px] top-[22%] h-[70%] w-auto animate-float-slow hidden lg:block">
             <div className="h-full" style={{ transform: 'scaleX(-1) rotate(15deg)' }}>
               <img
                 src="/graphics/RightHandHero.png?v=3"
@@ -328,7 +328,7 @@ export default function HomePage() {
             </div>
           </div>
           {/* Left hand (flipped) - now on right side, higher position */}
-          <div className="absolute top-[5%] md:-top-[10%] -right-[100px] md:-right-[50px] h-[50%] md:h-[70%] w-auto animate-float-slow-reverse opacity-30 md:opacity-100">
+          <div className="absolute -top-[10%] h-[70%] w-auto animate-float-slow-reverse hidden lg:block" style={{ right: 'calc(-5% - 50px)' }}>
             <div className="h-full" style={{ transform: 'scaleX(-1) rotate(-10deg)' }}>
               <img
                 src="/graphics/LeftHandHero.png?v=3"
@@ -366,7 +366,7 @@ export default function HomePage() {
         <img
           src="/graphics/phonestatuegraphic.png"
           alt=""
-          className="absolute pointer-events-none z-[5] opacity-20 md:opacity-100 scale-75 md:scale-100 origin-bottom-left"
+          className="absolute pointer-events-none z-[5] hidden lg:block"
           style={{
             left: '-150px',
             top: '150px',
@@ -548,7 +548,7 @@ export default function HomePage() {
         <img
           src="/graphics/structuresgraphics.png"
           alt=""
-          className="absolute bottom-0 pointer-events-none opacity-20 md:opacity-40"
+          className="absolute bottom-0 pointer-events-none opacity-40 hidden lg:block"
           style={{
             height: '1000px',
             width: 'auto',
