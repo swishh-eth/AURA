@@ -237,29 +237,29 @@ export default function HomePage() {
 
         {/* Hand graphics - Creation of Adam style */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
-          {/* Left finger dot - animates with left hand - hidden on mobile */}
+          {/* Left finger dot - animates with left hand */}
           <div
             ref={leftDotRef}
-            className="absolute w-2 h-2 rounded-full animate-float-slow hidden md:block"
+            className="absolute w-2 h-2 rounded-full animate-float-slow opacity-30 md:opacity-100"
             style={{
               left: 'calc(32% - 100px)',
               top: 'calc(40% + 145px)',
               backgroundColor: '#00C805'
             }}
           />
-          {/* Right finger dot - animates with right hand - hidden on mobile */}
+          {/* Right finger dot - animates with right hand */}
           <div
             ref={rightDotRef}
-            className="absolute w-2 h-2 rounded-full animate-float-slow-reverse hidden md:block"
+            className="absolute w-2 h-2 rounded-full animate-float-slow-reverse opacity-30 md:opacity-100"
             style={{
               right: 'calc(30% - 35px)',
               top: 'calc(47% - 310px)',
               backgroundColor: '#00C805'
             }}
           />
-          {/* Candlestick chart between fingers - hidden on mobile */}
+          {/* Candlestick chart between fingers */}
           <svg
-            className="absolute inset-0 w-full h-full hidden md:block"
+            className="absolute inset-0 w-full h-full opacity-30 md:opacity-100"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >
@@ -317,8 +317,8 @@ export default function HomePage() {
             })}
           </svg>
 
-          {/* Right hand (flipped) - now on left side, lower position - hidden on mobile */}
-          <div className="absolute -left-[50px] top-[22%] h-[70%] w-auto animate-float-slow hidden md:block">
+          {/* Right hand (flipped) - now on left side, lower position */}
+          <div className="absolute -left-[100px] md:-left-[50px] top-[30%] md:top-[22%] h-[50%] md:h-[70%] w-auto animate-float-slow opacity-30 md:opacity-100">
             <div className="h-full" style={{ transform: 'scaleX(-1) rotate(15deg)' }}>
               <img
                 src="/graphics/RightHandHero.png?v=3"
@@ -327,8 +327,8 @@ export default function HomePage() {
               />
             </div>
           </div>
-          {/* Left hand (flipped) - now on right side, higher position - hidden on mobile */}
-          <div className="absolute -top-[10%] h-[70%] w-auto animate-float-slow-reverse hidden md:block" style={{ right: 'calc(-5% - 50px)' }}>
+          {/* Left hand (flipped) - now on right side, higher position */}
+          <div className="absolute top-[5%] md:-top-[10%] -right-[100px] md:-right-[50px] h-[50%] md:h-[70%] w-auto animate-float-slow-reverse opacity-30 md:opacity-100">
             <div className="h-full" style={{ transform: 'scaleX(-1) rotate(-10deg)' }}>
               <img
                 src="/graphics/LeftHandHero.png?v=3"
@@ -362,11 +362,11 @@ export default function HomePage() {
 
       {/* Features + Featured Presales Wrapper for statue clipping */}
       <div className="relative overflow-hidden">
-        {/* Phone statue image - spans both sections - hidden on mobile */}
+        {/* Phone statue image - spans both sections */}
         <img
           src="/graphics/phonestatuegraphic.png"
           alt=""
-          className="absolute pointer-events-none z-[5] hidden lg:block"
+          className="absolute pointer-events-none z-[5] opacity-20 md:opacity-100 scale-75 md:scale-100 origin-bottom-left"
           style={{
             left: '-150px',
             top: '150px',
@@ -459,8 +459,8 @@ export default function HomePage() {
       {/* Featured Presales */}
       {featuredTokens.length > 0 && (
         <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-          {/* White background layer - behind statue */}
-          <div className="absolute inset-0 bg-white z-0" />
+          {/* Green background layer - behind statue */}
+          <div className="absolute inset-0 bg-[#00C805] z-0" />
           <div className="relative z-20">
                         {/* Desktop layout - middle 3 in container, outer 2 extend beyond */}
             <div className="hidden lg:block">
@@ -544,11 +544,11 @@ export default function HomePage() {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-                {/* Structures graphic - bottom right - hidden on mobile */}
+                {/* Structures graphic - bottom right */}
         <img
           src="/graphics/structuresgraphics.png"
           alt=""
-          className="absolute bottom-0 pointer-events-none opacity-40 hidden md:block"
+          className="absolute bottom-0 pointer-events-none opacity-20 md:opacity-40"
           style={{
             height: '1000px',
             width: 'auto',
