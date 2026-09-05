@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Windows Bold';
+  src: url('/graphics/windows-bold[1].ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+  }
+
+  body {
+    @apply bg-black text-white antialiased;
+    font-family: 'Windows Bold', sans-serif;
+  }
+
+  * {
+    @apply border-white/20;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-white text-black px-6 py-3 font-medium transition-all hover:bg-white/90 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-white px-6 py-3 font-medium border border-white transition-all hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .card {
+    @apply bg-black border border-white/20 p-6 transition-all hover:border-white/40;
+  }
+
+  .input {
+    @apply bg-black border border-white/20 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-white/60 transition-colors;
+  }
+
+  .label {
+    @apply text-sm font-medium text-white/80 mb-2 block;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Floating animations for hands */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-slow-reverse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+}
+
+.animate-float-slow-reverse {
+  animation: float-slow-reverse 10s ease-in-out infinite;
+}
+
+/* Lightning flash animation */
+@keyframes lightning-flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-lightning {
+  animation: lightning-flash 0.2s ease-out forwards;
+}
