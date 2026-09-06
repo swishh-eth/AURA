@@ -108,14 +108,56 @@ export default function CreatePage() {
   const teamPercent = 100 - form.presalePercent - form.lpPercent;
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Create Token</h1>
-          <p className="text-white/60">
-            Launch your token presale on Robinhood Chain
-          </p>
+    <div className="min-h-screen">
+      {/* Hero Header - extends behind transparent nav */}
+      <div
+        className="relative overflow-hidden"
+        style={{ marginTop: '-8rem', paddingTop: '8rem' }}
+      >
+        {/* Cloud background */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: '-20px',
+            left: '-20px',
+            right: '-20px',
+            height: '100vh',
+            backgroundImage: 'url(/graphics/cloudsbackground.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center top',
+            opacity: 0.3,
+          }}
+        />
+        {/* Radial gradient overlay to darken clouds toward center - same as home screen */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: '-20px',
+            left: '-20px',
+            right: '-20px',
+            height: '100vh',
+            background: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 80%)'
+          }}
+        />
+        {/* Fade to black at bottom */}
+        <div
+          className="absolute left-0 right-0 bottom-0 h-32 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 100%)'
+          }}
+        />
+
+        <div className="pt-4 pb-12 px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#00C805]">
+              Create Token
+            </h1>
+          </div>
         </div>
+      </div>
+
+      <div className="py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
 
         <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-2">
           {STEPS.map((s, i) => (
@@ -460,6 +502,7 @@ export default function CreatePage() {
             </button>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

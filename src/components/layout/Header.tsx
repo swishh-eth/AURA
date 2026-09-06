@@ -19,7 +19,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 pb-16" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)' }}>
+    <header className="sticky top-0 z-50 pb-16" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)' }}>
       <div className="w-full px-10 lg:px-16">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
@@ -35,8 +35,8 @@ export function Header() {
                   className={cn(
                     'text-sm font-medium transition-colors',
                     pathname === link.href
-                      ? 'text-white'
-                      : 'text-white/60 hover:text-white'
+                      ? 'text-[#00C805]'
+                      : 'text-[#00C805]/60 hover:text-[#00C805]'
                   )}
                 >
                   {link.label}

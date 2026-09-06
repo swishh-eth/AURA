@@ -28,13 +28,62 @@ export default function DashboardPage() {
 
   if (!isConnected) {
     return (
-      <div className="min-h-screen flex items-center justify-center py-8 px-4">
-        <div className="text-center">
-          <Wallet className="w-16 h-16 mx-auto text-white/40 mb-4" />
-          <h1 className="text-2xl font-bold mb-2">Connect Your Wallet</h1>
-          <p className="text-white/60 mb-6 max-w-md">
-            Connect your wallet to view your NFTs, contributions, and created tokens.
-          </p>
+      <div className="min-h-screen">
+        {/* Hero Header - extends behind transparent nav */}
+        <div
+          className="relative overflow-hidden"
+          style={{ marginTop: '-8rem', paddingTop: '8rem' }}
+        >
+          {/* Cloud background */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              top: '-20px',
+              left: '-20px',
+              right: '-20px',
+              height: '100vh',
+              backgroundImage: 'url(/graphics/cloudsbackground.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center top',
+              opacity: 0.3,
+            }}
+          />
+          {/* Radial gradient overlay to darken clouds toward center - same as home screen */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              top: '-20px',
+              left: '-20px',
+              right: '-20px',
+              height: '100vh',
+              background: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 80%)'
+            }}
+          />
+          {/* Fade to black at bottom */}
+          <div
+            className="absolute left-0 right-0 bottom-0 h-32 pointer-events-none"
+            style={{
+              background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 100%)'
+            }}
+          />
+
+          <div className="pt-4 pb-12 px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="max-w-7xl mx-auto">
+              <h1 className="text-4xl sm:text-5xl font-bold text-[#00C805]">
+                Dashboard
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center py-24 px-4">
+          <div className="text-center">
+            <Wallet className="w-16 h-16 mx-auto text-white/40 mb-4" />
+            <h1 className="text-2xl font-bold mb-2">Connect Your Wallet</h1>
+            <p className="text-white/60 mb-6 max-w-md">
+              Connect your wallet to view your NFTs, contributions, and created tokens.
+            </p>
+          </div>
         </div>
       </div>
     );
@@ -63,14 +112,56 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Dashboard</h1>
-          <p className="text-white/60">
-            Manage your NFTs, contributions, and tokens
-          </p>
+    <div className="min-h-screen">
+      {/* Hero Header - extends behind transparent nav */}
+      <div
+        className="relative overflow-hidden"
+        style={{ marginTop: '-8rem', paddingTop: '8rem' }}
+      >
+        {/* Cloud background */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: '-20px',
+            left: '-20px',
+            right: '-20px',
+            height: '100vh',
+            backgroundImage: 'url(/graphics/cloudsbackground.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center top',
+            opacity: 0.3,
+          }}
+        />
+        {/* Radial gradient overlay to darken clouds toward center - same as home screen */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: '-20px',
+            left: '-20px',
+            right: '-20px',
+            height: '100vh',
+            background: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 80%)'
+          }}
+        />
+        {/* Fade to black at bottom */}
+        <div
+          className="absolute left-0 right-0 bottom-0 h-32 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 100%)'
+          }}
+        />
+
+        <div className="pt-4 pb-12 px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#00C805]">
+              Dashboard
+            </h1>
+          </div>
         </div>
+      </div>
+
+      <div className="py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <div className="card">
@@ -269,6 +360,7 @@ export default function DashboardPage() {
             )}
           </div>
         )}
+      </div>
       </div>
     </div>
   );

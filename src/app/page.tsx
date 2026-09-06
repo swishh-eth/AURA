@@ -215,20 +215,20 @@ export default function HomePage() {
             }}
           />
           <div className="px-8 py-10">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+            <h1 className="font-bold mb-6 tracking-tight leading-tight" style={{ fontSize: 'clamp(2.5rem, 5vw, 5rem)' }}>
               Launch Tokens on
               <br />
               <span className="text-white">Robinhood Chain</span>
             </h1>
-            <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-10">
+            <p className="text-white/60 max-w-2xl mx-auto mb-10" style={{ fontSize: 'clamp(1rem, 1.3vw, 1.35rem)' }}>
               Crowdfund from members to raise ETH via smart contracts. Then create, LP, and distribute tokens to members—all through a decentralized protocol.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/create" className="btn-primary flex items-center gap-2 text-lg px-8 py-4">
+              <Link href="/create" className="btn-primary flex items-center gap-2" style={{ fontSize: 'clamp(1rem, 1.2vw, 1.25rem)', padding: 'clamp(0.875rem, 1.1vw, 1.25rem) clamp(1.75rem, 2.2vw, 2.5rem)' }}>
                 Launch Token
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/explore" className="btn-secondary flex items-center gap-2 text-lg px-8 py-4">
+              <Link href="/explore" className="btn-secondary flex items-center gap-2" style={{ fontSize: 'clamp(1rem, 1.2vw, 1.25rem)', padding: 'clamp(0.875rem, 1.1vw, 1.25rem) clamp(1.75rem, 2.2vw, 2.5rem)' }}>
                 Explore Presales
               </Link>
             </div>
@@ -237,23 +237,23 @@ export default function HomePage() {
 
         {/* Hand graphics - Creation of Adam style */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
-          {/* Left finger dot - animates with left hand */}
+          {/* Left finger dot - animates with left hand, scales with viewport */}
           <div
             ref={leftDotRef}
             className="absolute w-2 h-2 rounded-full animate-float-slow hidden lg:block"
             style={{
-              left: 'calc(32% - 100px)',
-              top: 'calc(40% + 145px)',
+              left: 'calc(24% + 4.5vw)',
+              top: 'calc(58% - 3.5vw)',
               backgroundColor: '#00C805'
             }}
           />
-          {/* Right finger dot - animates with right hand */}
+          {/* Right finger dot - animates with right hand, scales with viewport */}
           <div
             ref={rightDotRef}
             className="absolute w-2 h-2 rounded-full animate-float-slow-reverse hidden lg:block"
             style={{
-              right: 'calc(30% - 35px)',
-              top: 'calc(47% - 310px)',
+              right: 'calc(28% + 4.5vw)',
+              top: 'calc(28% - 3vw)',
               backgroundColor: '#00C805'
             }}
           />
@@ -317,8 +317,8 @@ export default function HomePage() {
             })}
           </svg>
 
-          {/* Right hand (flipped) - now on left side, lower position */}
-          <div className="absolute -left-[50px] top-[22%] h-[70%] w-auto animate-float-slow hidden lg:block">
+          {/* Right hand (flipped) - now on left side, scales with viewport */}
+          <div className="absolute top-[22%] w-auto animate-float-slow hidden lg:block" style={{ left: '-3vw', height: '50vw', maxHeight: '70vh' }}>
             <div className="h-full" style={{ transform: 'scaleX(-1) rotate(15deg)' }}>
               <img
                 src="/graphics/RightHandHero.png?v=3"
@@ -327,8 +327,8 @@ export default function HomePage() {
               />
             </div>
           </div>
-          {/* Left hand (flipped) - now on right side, higher position */}
-          <div className="absolute -top-[10%] h-[70%] w-auto animate-float-slow-reverse hidden lg:block" style={{ right: 'calc(-5% - 50px)' }}>
+          {/* Left hand (flipped) - now on right side, scales with viewport */}
+          <div className="absolute -top-[10%] w-auto animate-float-slow-reverse hidden lg:block" style={{ right: '-3vw', height: '50vw', maxHeight: '70vh' }}>
             <div className="h-full" style={{ transform: 'scaleX(-1) rotate(-10deg)' }}>
               <img
                 src="/graphics/LeftHandHero.png?v=3"
@@ -340,21 +340,19 @@ export default function HomePage() {
         </div>
 
         {/* Stats - sitting at bottom of viewport */}
-        <div className="absolute bottom-0 left-0 right-0 py-6 bg-black z-10">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-3 gap-8">
-              <div className="text-center">
-                <p className="text-2xl sm:text-3xl font-bold mb-1">{formatETH(stats.totalRaised)} ETH</p>
-                <p className="text-sm text-white/60">Total Raised</p>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl sm:text-3xl font-bold mb-1">{formatNumber(stats.tokensLaunched)}</p>
-                <p className="text-sm text-white/60">Tokens Launched</p>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl sm:text-3xl font-bold mb-1">{formatNumber(stats.activePresales)}</p>
-                <p className="text-sm text-white/60">Active Presales</p>
-              </div>
+        <div className="absolute bottom-0 left-0 right-0 py-6 z-10 px-4 sm:px-6 lg:px-[8vw]">
+          <div className="flex justify-between items-center">
+            <div className="text-left">
+              <p className="text-2xl sm:text-3xl font-bold mb-1 text-[#00C805]">{formatETH(stats.totalRaised)}</p>
+              <p className="text-sm text-[#00C805]/60">ETH Raised</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl sm:text-3xl font-bold mb-1 text-[#00C805]">{formatNumber(stats.tokensLaunched)}</p>
+              <p className="text-sm text-[#00C805]/60">Tokens Launched</p>
+            </div>
+            <div className="text-right">
+              <p className="text-2xl sm:text-3xl font-bold mb-1 text-[#00C805]">{formatNumber(stats.activePresales)}</p>
+              <p className="text-sm text-[#00C805]/60">Active Presales</p>
             </div>
           </div>
         </div>
@@ -362,40 +360,34 @@ export default function HomePage() {
 
       {/* Features + Featured Presales Wrapper for statue clipping */}
       <div className="relative overflow-hidden">
-        {/* Phone statue image - spans both sections */}
+        {/* Phone statue image - spans both sections, scales with viewport */}
         <img
           src="/graphics/phonestatuegraphic.png"
           alt=""
           className="absolute pointer-events-none z-[5] hidden lg:block"
           style={{
-            left: '-150px',
-            top: '150px',
-            transform: `scale(1.2) translateY(${Math.max(0, Math.min(100, 100 - (scrollY - 200) * 0.15))}px)`,
-            transformOrigin: 'center center',
+            right: '-5vw',
+            bottom: '-15vh',
+            height: 'clamp(800px, 80vw, 1600px)',
+            transform: `scaleX(-1) translateY(${Math.max(0, Math.min(100, 100 - (scrollY - 200) * 0.15))}px)`,
+            transformOrigin: 'center bottom',
             transition: 'transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
-            maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 95%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 95%)',
           }}
         />
       {/* Features Section */}
-      <section ref={featuresRef} className="py-32 px-4 sm:px-6 lg:px-8 bg-black relative">
-        {/* Gradient accent */}
+      <section ref={featuresRef} className="py-32 px-4 sm:px-6 lg:px-[8vw] bg-black relative">
+        {/* Gradient accent - now on left side */}
         <div
-          className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none"
+          className="absolute top-0 left-0 w-1/2 h-full opacity-20 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse at 100% 50%, rgba(0,200,5,0.15) 0%, transparent 60%)',
+            background: 'radial-gradient(ellipse at 0% 50%, rgba(0,200,5,0.15) 0%, transparent 60%)',
           }}
         />
 
-        <div className="max-w-7xl mx-auto relative">
+        <div className="relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Placeholder for statue */}
-            <div className="relative h-[600px] hidden lg:flex items-center justify-center">
-              {/* Statue appears here via absolute positioning */}
-            </div>
-
-            {/* Right side - Features */}
-            <div className="space-y-10">
+            {/* Left side - Features (moved from right) */}
+            <div className="space-y-10 max-w-xl">
               <div>
                 <p className="text-[#00C805] text-sm font-medium tracking-widest uppercase mb-2">Platform Benefits</p>
                 <h2 className="text-4xl sm:text-5xl font-bold mb-4">Why Choose AURA?</h2>
@@ -452,15 +444,37 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+
+            {/* Right side - Placeholder for statue */}
+            <div className="relative h-[600px] hidden lg:flex items-center justify-center">
+              {/* Statue appears here via absolute positioning */}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Featured Presales */}
       {featuredTokens.length > 0 && (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-          {/* Green background layer - behind statue */}
-          <div className="absolute inset-0 bg-[#00C805] z-0" />
+        <section className="pt-12 pb-20 px-4 sm:px-6 lg:px-[8vw] relative overflow-hidden">
+          {/* White background with black dot dither pattern */}
+          <div className="absolute inset-0 bg-white z-0" />
+          <div
+            className="absolute inset-0 z-[1]"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 25% 25%, #000 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, #000 0.5px, transparent 0.5px),
+                radial-gradient(circle at 75% 25%, #000 0.8px, transparent 0.8px),
+                radial-gradient(circle at 25% 75%, #000 0.8px, transparent 0.8px)
+              `,
+              backgroundSize: '8px 8px',
+              opacity: 0.2,
+            }}
+          />
+          {/* Section header */}
+          <div className="relative z-20 mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold text-black">Featured Presales</h2>
+          </div>
           <div className="relative z-20">
                         {/* Desktop layout - middle 3 in container, outer 2 extend beyond */}
             <div className="hidden lg:block">
@@ -508,9 +522,26 @@ export default function HomePage() {
       )}
       </div>{/* End of statue clipping wrapper */}
 
+      {/* Recent Launches + CTA wrapper for tree graphic */}
+      <div className="relative overflow-hidden">
+        {/* Tree graphic - bottom left, scales with viewport */}
+        <img
+          src="/graphics/tree.png"
+          alt=""
+          className="absolute bottom-0 pointer-events-none opacity-40 hidden lg:block z-20"
+          style={{
+            height: 'clamp(300px, 35vw, 900px)',
+            width: 'auto',
+            left: '-5vw',
+            transform: `scaleX(-1) translateY(${Math.max(0, Math.min(150, 150 - (scrollY - 800) * 0.15))}px)`,
+            transition: 'transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 40%, black 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 40%, black 100%)',
+          }}
+        />
       {/* Recent Launches */}
-      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-black">
-        <div className="max-w-7xl mx-auto">
+      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-black relative">
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex items-center justify-between mb-12">
             <div>
               <p className="text-[#00C805] text-sm font-medium tracking-widest uppercase mb-2">Just Launched</p>
@@ -544,15 +575,15 @@ export default function HomePage() {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-                {/* Structures graphic - bottom right */}
+                {/* Structures graphic - bottom right, scales with viewport */}
         <img
           src="/graphics/structuresgraphics.png"
           alt=""
           className="absolute bottom-0 pointer-events-none opacity-40 hidden lg:block"
           style={{
-            height: '1000px',
+            height: 'clamp(300px, 40vw, 1000px)',
             width: 'auto',
-            right: '-200px',
+            right: '-10vw',
             transform: `translateY(${Math.max(0, Math.min(150, 150 - (scrollY - 800) * 0.15))}px)`,
             transition: 'transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
             maskImage: 'linear-gradient(to right, transparent 0%, black 70%, black 100%)',
@@ -560,6 +591,7 @@ export default function HomePage() {
           }}
         />
       </section>
+      </div>{/* End of tree wrapper */}
     </div>
   );
 }

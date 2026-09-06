@@ -74,31 +74,50 @@ export default function ExplorePage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Header */}
-      <div className="relative overflow-hidden border-b border-white/10">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#00C805]/10 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-        {/* Grid pattern */}
+      {/* Hero Header - extends behind transparent nav */}
+      <div
+        className="relative overflow-hidden"
+        style={{ marginTop: '-8rem', paddingTop: '8rem' }}
+      >
+        {/* Cloud background */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute pointer-events-none"
           style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
+            top: '-20px',
+            left: '-20px',
+            right: '-20px',
+            height: '100vh',
+            backgroundImage: 'url(/graphics/cloudsbackground.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center top',
+            opacity: 0.3,
+          }}
+        />
+        {/* Radial gradient overlay to darken clouds toward center - same as home screen */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: '-20px',
+            left: '-20px',
+            right: '-20px',
+            height: '100vh',
+            background: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 80%)'
+          }}
+        />
+        {/* Fade to black at bottom */}
+        <div
+          className="absolute left-0 right-0 bottom-0 h-32 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 100%)'
           }}
         />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-12 bg-[#00C805]" />
-            <p className="text-[#00C805] text-sm font-medium tracking-widest uppercase">Discover</p>
+        <div className="pt-4 pb-12 px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#00C805]">
+              Explore Presales
+            </h1>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Explore <span className="text-[#00C805]">Presales</span>
-          </h1>
-          <p className="text-white/50 text-lg max-w-xl">
-            Discover and participate in token launches on Robinhood Chain. Find the next big opportunity.
-          </p>
         </div>
       </div>
 
