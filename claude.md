@@ -3,6 +3,10 @@
 ## Project Overview
 AURA is a decentralized token launcher/crowdfunding platform built for Robinhood Chain (Arbitrum Orbit L2). Users can create token presales, contribute ETH, receive NFTs representing their contribution, and participate in governance.
 
+## Repository
+- **GitHub**: https://github.com/swishh-eth/AURA
+- **Live Demo**: Deployed on Vercel
+
 ## Tech Stack
 - **Framework**: Next.js 14 (App Router)
 - **Web3**: wagmi v2 + viem
@@ -50,11 +54,13 @@ AURA/
 │       └── index.ts              # TypeScript types
 ├── public/
 │   └── graphics/
-│       ├── cloudsbackground.png  # Hero section clouds
+│       ├── cloudsbackground.png  # Hero section clouds with parallax
 │       ├── RightHandHero.png     # Left hand (Creation of Adam style)
 │       ├── LeftHandHero.png      # Right hand
-│       ├── phonestatuegraphic.png # Features section statue
-│       ├── pillar.png            # Decorative pillar (unused currently)
+│       ├── phonestatuegraphic.png # Features section statue with scroll animation
+│       ├── structuresgraphics.png # CTA section architecture graphic
+│       ├── angels2.png           # Unused (available for future use)
+│       ├── Pillar.png            # Decorative pillar (unused)
 │       └── mock/                 # Token images
 │           ├── CULTDAO.jpg
 │           ├── FLIGHT.jpg
@@ -70,12 +76,12 @@ AURA/
 ## Pages & Features Implemented
 
 ### Home Page (`/`)
-- **Hero Section**: Full viewport with hands (Creation of Adam style), animated candlestick chart between fingers, clouds background with parallax
+- **Hero Section**: Full viewport with hands (Creation of Adam style), animated candlestick chart between fingers, clouds background with mouse parallax
 - **Stats Bar**: Total raised, tokens launched, active presales
-- **Features Section**: "Why Choose AURA?" with phone statue image (scroll animation), numbered feature list (01-04)
-- **Featured Presales**: White background section, 5 cards spread out (2 left, 1 center, 2 right), green "FEATURED" tabs
+- **Features Section**: "Why Choose AURA?" with phone statue image (smooth scroll parallax), numbered feature list (01-04) on the right
+- **Featured Presales**: Green background section, 5 cards spread out (2 outside container, 3 in grid)
 - **Recent Launches**: 6 token cards in 3-column grid
-- **CTA Section**: "Ready to Launch?" with Get Started button
+- **CTA Section**: "Ready to Launch?" with structure graphic (scroll parallax) on the right
 
 ### Explore Page (`/explore`)
 - **Hero Header**: Gradient background with grid pattern, "Explore Presales" title
@@ -88,7 +94,6 @@ AURA/
 - Hover effects: lift up, green shadow, border glow, image zoom
 - Progress bar with green fill
 - Status badges (Active, Funded, Upcoming, Live)
-- Featured variant with green tab above card
 
 ### Header
 - Green "AURA" logo
@@ -120,15 +125,26 @@ group-hover:border-[#00C805]
 Background image: `opacity-50 → opacity-70`, `scale-110` on hover
 
 ### Featured Cards Layout
-- Middle 3 cards align with Recent Launches grid
+- Middle 3 cards in max-w-7xl grid
 - Outer 2 cards positioned outside container with absolute positioning
-- Same width calculated as: `calc((100% - 48px) / 3)`
+- Card width: `calc((100% - 48px) / 3)`
 
-### Phone Statue Animation
+### Parallax Animations
+Phone Statue:
 ```javascript
-transform: `translateY(calc(-50% + ${Math.max(350, Math.min(700, 700 - (scrollY - 200) * 0.7))}px)) scale(2.2)`
+transform: `scale(1.2) translateY(${Math.max(0, Math.min(100, 100 - (scrollY - 200) * 0.15))}px)`
+transition: 'transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)'
 ```
-Rises up as user scrolls, with bottom fade mask
+
+Structure Graphic:
+```javascript
+transform: `translateY(${Math.max(0, Math.min(150, 150 - (scrollY - 800) * 0.15))}px)`
+```
+
+### Responsive Design
+- All decorative graphics (hands, candlesticks, statue, structure) hidden below `lg` breakpoint (1024px)
+- Mobile version needs dedicated design work (TODO)
+- Cards and content are responsive
 
 ## Commands
 ```bash
@@ -144,6 +160,7 @@ npm run start  # Start production server
 - Green accent color: `#00C805` (Robinhood green)
 
 ## Future Work
+- Mobile-specific design and layout
 - Smart contract integration
 - Real wallet transactions
 - On-chain chat functionality
